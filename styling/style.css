@@ -48,4 +48,50 @@ h3,
 }   
 
 
+/* ====================== */
+/* Import */
+/* ====================== */
 
+
+
+
+
+/* ====================== */
+/* Grid */
+/* ====================== */
+
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;       /* 2 equal columns */
+  justify-content: center;          /* center horizontally */
+  align-items: start;               /* align content to the top */
+  gap: 0px;                     /* space between columns */
+}
+
+
+
+
+.content {
+    display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2 equal columns */
+  width: 100vw;
+  height: 100vh;;  
+  justify-content: center;          /* center horizontally */
+  align-items: start;               /* align content to the top */
+  gap: 20px;                        /* space between columns */
+}
+
+
+
+
+/* ====================== */
+/* Lines */
+/* ====================== */
+
+.divider {
+  height: 2px;
+  background-color: #333;
+  width: 80%;
+  margin: 20px auto;
+}
