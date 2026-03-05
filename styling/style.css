@@ -138,3 +138,23 @@ body {
     width: 80%;
     margin: 20px auto;
 }
+
+
+
+
+
+
+
+/* Standard: gilt für ALLE Bildschirme (also zuerst Mobile) */
+.box {
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* Ausnahme: NUR wenn Bildschirm ≥ 768px (Tablet/Desktop) */
+@media (min-width: 768px) {
+  .box {
+    font-size: 18px;
+    padding: 20px;
+  }
+}
