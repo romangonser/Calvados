@@ -1,3 +1,13 @@
+:root {
+    --primary-color: #1B1B1B;
+    --secondary-color: #F6F6F6;
+    --accent-color: #333;
+    --font-primary: "Nevoa", sans-serif;
+    --font-secondary: "Yorkten", serif;
+}
+
+
+
 header {
     position: fixed;
     top: 0;
@@ -15,11 +25,7 @@ header {
 
 
 
-.img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 
 h1:hover {
@@ -53,7 +59,7 @@ h3,
 
 /* classe für buttonclass="btn" */
 
-.btn {
+/* .btn {
     background-color: orange;
     color: white;
     padding: 10px 20px;
@@ -64,7 +70,7 @@ h3,
 
 .btn:hover {
     background-color: darkorange;
-}
+} */
 
 
 /* ====================== */
@@ -88,6 +94,7 @@ h3 {
     font-stretch: normal;
     font-weight: 400;
     font-size: 48px;
+    margin: 0%;
 }
 
 h4,
@@ -97,12 +104,12 @@ p {
     font-stretch: normal;
     font-weight: 300;
     font-size: 20px;
+    margin: 0%;
 
 }
 
 h1 {
     font-size: 64px;
-    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -122,18 +129,27 @@ body {
 /* Images */
 /* ====================== */
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+
+
+
 
 .hero_image img {
     width: 100%;
     height: 80vh;
-    /* Höhe anpassen nach Wunsch */
     object-fit: cover;
     /* Bild wird zugeschnitten, nicht verzerrt */
+}
+
+.image_container_content {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.two-col .image_container_content img {
+    width: 60%; /* oder weniger */
+    height: auto;
+    object-fit: cover;
 }
 
 
@@ -154,16 +170,22 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: start;
-    gap: 40px;
-    padding: 60px 40px;
+    gap: 64px;
+    width: 80%;
+    margin: 0 auto 32px auto;
 }
 
 .one-col {
     display: grid;
     grid-template-columns: 1fr;
     align-items: start;
-    gap: 40px;
-    padding: 60px 40px;
+    gap: 64px;
+}
+
+.text {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
 }
 
 
@@ -177,7 +199,7 @@ body {
     height: 2px;
     background-color: #333;
     width: 80%;
-    margin: 20px auto;
+    margin: 0px auto 32px auto;
 }
 
 
