@@ -1,6 +1,25 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
 h1:hover {
@@ -60,8 +79,30 @@ h3,
 /* Typography */
 /* ====================== */
 
+
 h1,
-h2 {
+h2,
+h3 {
+    font-family: "Nevoa";
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    font-size: 48px;
+}
+
+h4,
+p {
+    font-family: "Yorkten";
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 300;
+    font-size: 20px;
+
+}
+
+h1 {
+    font-size: 64px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -72,8 +113,8 @@ h2 {
 /* ====================== */
 
 body {
-  background-color: #1B1B1B;
-  color: #F6F6F6;
+    background-color: #1B1B1B;
+    color: #F6F6F6;
 }
 
 
@@ -147,14 +188,14 @@ body {
 
 /* Standard: gilt für ALLE Bildschirme (also zuerst Mobile) */
 .box {
-  font-size: 14px;
-  padding: 10px;
+    font-size: 14px;
+    padding: 10px;
 }
 
 /* Ausnahme: NUR wenn Bildschirm ≥ 768px (Tablet/Desktop) */
 @media (min-width: 768px) {
-  .box {
-    font-size: 18px;
-    padding: 20px;
-  }
+    .box {
+        font-size: 18px;
+        padding: 20px;
+    }
 }
