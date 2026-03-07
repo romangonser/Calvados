@@ -1,9 +1,26 @@
+/* ------------ RESET ------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :root {
     --primary-color: #1B1B1B;
     --secondary-color: #F6F6F6;
-    --accent-color: #333;
+    --accent-color: #F59032;
     --font-primary: "Nevoa", sans-serif;
     --font-secondary: "Yorkten", serif;
+    --spacing-xs: 8px;
+    /* .box padding */
+    --spacing-sm: 16px;
+    /* header padding, media query .box padding */
+    --spacing-md: 24px;
+    /* .text gap */
+    --spacing-lg: 32px;
+    /* .gallery_wrapper gap, .divider margin */
+    --spacing-xl: 64px;
+    /* .two-col gap, .one-col gap */
 }
 
 
@@ -15,7 +32,7 @@ header {
     width: 100%;
     background-color: #333;
     color: white;
-    padding: 20px;
+    padding: var(--spacing-sm);
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -23,30 +40,6 @@ header {
     align-items: center;
 }
 
-
-
-
-
-
-h1:hover {
-    color: red;
-}
-
-
-h2 {
-    font-size: 24px;
-}
-
-.hero_section {
-    color: blue;
-}
-
-h1,
-h2,
-h3,
-.title #hero_section {
-    font-family: Arial, sans-serif;
-}
 
 /*          ../ für raus aus dem Ordner
             ./ für im Ordner bleiben     */
@@ -89,29 +82,32 @@ h3,
 h1,
 h2,
 h3 {
-    font-family: "Nevoa";
+    font-family: var(--font-primary);
     font-style: normal;
     font-stretch: normal;
     font-weight: 400;
-    font-size: 48px;
     margin: 0%;
-}
-
-h4,
-p {
-    font-family: "Yorkten";
-    font-style: normal;
-    font-stretch: normal;
-    font-weight: 300;
-    font-size: 20px;
-    margin: 0%;
-
 }
 
 h1 {
     font-size: 64px;
     text-align: center;
 }
+
+h2 {
+    font-size: 48px;
+}
+
+h3,
+p {
+    font-family: var(--font-secondary);
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 300;
+    font-size: 20px;
+    margin: 0%;
+}
+
 
 
 
@@ -129,64 +125,98 @@ body {
 /* Images */
 /* ====================== */
 
-
-
-
-
-.hero_image img {
-    width: 100%;
-    height: 80vh;
+img {
+        width: 100%;
+    height: auto;
     object-fit: cover;
-    /* Bild wird zugeschnitten, nicht verzerrt */
+    
 }
+
 
 .image_container_content {
     display: grid;
+    justify-self: center;
+    width: 80%;
+    height: 80%;
+}
+
+/* .image_container_gallery {
+    display: grid;
     place-items: center;
     width: 100%;
-}
-
-.two-col .image_container_content img {
-    width: 60%; /* oder weniger */
-    height: auto;
-    object-fit: cover;
-}
-
-
-
-/* ====================== */
-/* Grid */
-/* ====================== */
-
-
-body {
-    width: 100vw;
-    min-height: 100vh;
+    padding: var(--spacing-lg);
     margin: 0;
-    padding: 0;
-}
+} */
+
+
+/* ====================== */
+/* Grid / Layout */
+/* ====================== */
+
+
+
+
 
 .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: start;
-    gap: 64px;
+    justify-self: center;
+    gap: var(--spacing-xl);
     width: 80%;
-    margin: 0 auto 32px auto;
 }
 
 .one-col {
     display: grid;
     grid-template-columns: 1fr;
-    align-items: start;
-    gap: 64px;
+    justify-self: center;
+    gap: var(--spacing-xl);
+    text-align: center;
+}
+
+.two-col.reverse > :first-child {
+    order: 2;
 }
 
 .text {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: var(--spacing-md);
 }
+
+
+
+.gallery_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    align-items: center;
+    gap: var(--spacing-sm);
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+
+
+/* ====================== */
+/* Hero Section */
+/* ====================== */
+
+.hero_image_container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.hero_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--primary-color), transparent);
+    pointer-events: none;
+}
+
 
 
 
@@ -196,28 +226,42 @@ body {
 /* ====================== */
 
 .divider {
-    height: 2px;
-    background-color: #333;
+    height: 1px;
+    background-color: var(--secondary-color);
     width: 80%;
-    margin: 0px auto 32px auto;
+    margin: 0px auto var(--spacing-lg) auto;
 }
 
 
 
+/* ====================== */
+/* buttons */
+/* ====================== */
 
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font: inherit;
+    font-family: var(--font-primary);
+    font-size: 50px;
+    gap: var(--spacing-xs);
+}   
 
-
-
-/* Standard: gilt für ALLE Bildschirme (also zuerst Mobile) */
-.box {
-    font-size: 14px;
-    padding: 10px;
+.arrow_right {
+    width: auto;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;    
 }
 
-/* Ausnahme: NUR wenn Bildschirm ≥ 768px (Tablet/Desktop) */
-@media (min-width: 768px) {
-    .box {
-        font-size: 18px;
-        padding: 20px;
-    }
+.arrow_right img {
+    height: 100%;
+    width: auto;
 }

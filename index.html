@@ -17,16 +17,6 @@
   <link rel="stylesheet" type="text/css"
     href="https://cdn.fonts.net/kit/73cc438e-98e0-4f18-9232-583ac00a518a/73cc438e-98e0-4f18-9232-583ac00a518a_enhanced.css" />
 
-  <link rel="preconnect" href="https://cdn.fonts.net">
-
-  <script type="text/javascript"
-    src="https://cdn.fonts.net/kit/73cc438e-98e0-4f18-9232-583ac00a518a/73cc438e-98e0-4f18-9232-583ac00a518a_enhanced.js"
-    async></script>
-
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.fonts.net/kit/73cc438e-98e0-4f18-9232-583ac00a518a/73cc438e-98e0-4f18-9232-583ac00a518a_enhanced.css" />
-
-
   <link rel="stylesheet" href="./styling/style.css">
 </head>
 
@@ -54,8 +44,9 @@
 
 
       <section id="hero_section">
-        <div class="hero image_container_content">
+        <div class="hero_image_container">
           <img src="./assets/img/img_hero.webp" alt="Bild von einem Apfelbaum" />
+          <div class="hero_overlay"></div>
         </div>
 
         <div class="divider"></div>
@@ -81,21 +72,20 @@
 
         <div class="Salut text_box">
           <div class="text">
-            <h3>Salut!</h3>
+            <h2>Salut!</h2>
             <p>Ich bin ein Obstbrand aus der Normandie. Bernsteinfarben, aromatisch, mit einer Tiefe, die mit den Jahren
               wächst. Mein Alkoholgehalt liegt zwischen vierzig und fünfundvierzig Volumenprozent. Im Glas zeige ich
               mich samtig, in der Nase reich und vielschichtig. </p>
           </div>
           <div class="CTA">
             <p>Jetzt Familie entdecken</p>
-            <button>zum Shop</button>
-          </div>
+            <button>zum Shop <div class="class arrow_right"><img src="./assets/icons/Arrow_right.svg" alt=""></div> </div>
         </div>
       </section>
 
       <div class="divider"></div>
 
-      <section id="region" class="two-col">
+      <section id="region" class="two-col reverse">
 
         <div class="region image_container_content">
           <img src="./assets/img/img_map_france.webp" alt="Bild einer Landschaft mit Apfelbäumen" />
@@ -103,16 +93,16 @@
 
         <div class="region text_box">
           <div class="text">
-            <h3>Nicht von irgendwo.</h3>
+            <h2>Nicht von irgendwo.</h2>
             <p>Ich darf mich nur Calvados nennen, wenn ich aus einem von elf genau festgelegten Anbaugebieten der
               Normandie stamme. Das ist kein Marketing, sondern gesetzlich geregelt und wird vom Institut national de
               l'origine et de la qualité überwacht. Die angesehenste dieser Regionen ist Pays d’Auge. Hier gibt es ein
               eigenes AOC-Siegel, ein spezielles Mikroklima und eine Apfeltradition, die über Jahrhunderte gewachsen
               ist.
-              <p>Von der Ernte bis zur Abfüllung bleibt jeder Schritt in meinem Herkunftsgebiet. Herkunft ist hier keine
+            <p>Von der Ernte bis zur Abfüllung bleibt jeder Schritt in meinem Herkunftsgebiet. Herkunft ist hier keine
               Dekoration, sondern Bedingung. Sie prägt mich und macht mich zu dem, was ich bin..</p>
-          </p>
-            </div>
+            </p>
+          </div>
 
       </section>
 
@@ -127,7 +117,7 @@
 
         <div class="history text_box">
           <div class="text">
-            <h3>Seit Jahrhunderten.</h3>
+            <h2>Seit Jahrhunderten.</h2>
             <p>Es begann mit einer königlichen Konzession. Sire Gilles de Gouberville erhielt 1553 das Recht, in der
               Normandie ein Eau de Vie de Sydre zu brennen. Dies ist der älteste schriftliche Beleg für das, was später
               Calvados werden sollte. Jahrhunderte handwerklicher Tradition folgten, zunächst still und regional, dann
@@ -135,25 +125,28 @@
               1884 fiel mein Name offiziell. Ich hatte die Pariser Salons erreicht und wurde zum Synonym für
               normannischen Apfelbrand. Was zuvor als bäuerlicher Schnaps galt, begann einen langen, geduldigen
               Aufstieg.
-            <p>Der entscheidende Wendepunkt kam unfreiwillig. Im Zweiten Weltkrieg beschlagnahmten die deutschen Behörden
+            <p>Der entscheidende Wendepunkt kam unfreiwillig. Im Zweiten Weltkrieg beschlagnahmten die deutschen
+              Behörden
               nahezu alle französischen Spirituosenbestände. Ausgenommen waren nur jene mit geschützter
               Herkunftsbezeichnung. Der normannische Landwirtschaftsminister Jacques Le Roy Ladurie kämpfte erfolgreich
               dafür, dass ich denselben Schutz erhielt. 1942 wurde das Bureau National Interprofessionel des Calvados
               gegründet. Eine Struktur entstand, die Qualität nicht nur sichert, sondern systematisch fördert.
               Was der Krieg erzwang, vollendete die Zeit. Heute stehe ich als Calvados Pays d’Auge für das Höchste, was
               normannisches Brennhandwerk zu bieten hat.</p>
-          </p>
-            </div>
+            </p>
+          </div>
 
       </section>
 
-<div class="divider"></div>
+      <div class="divider"></div>
 
+
+      <!-- 
       <section id="producer" class="one-col">
 
 
         <div class="Producer_Text">
-          <h3>Häuser, die für sich sprechen.</h3>
+          <h2>Häuser, die für sich sprechen.</h2>
         </div>
 
         <div class="Producer_Slider">
@@ -178,17 +171,16 @@
         </div>
 
 
-      </section>
+      </section> -->
 
-<div class="divider"></div>
+      <div class="divider"></div>
 
 
-      <section id="Craft_Tradition " class="two-col">
-
+      <section id="Craft_Tradition" class="two-col">
 
         <div class="Craft text_box">
           <div class="text">
-            <h3>Handwerk</h3>
+            <h2>Handwerk</h2>
             <p>Ich beginne als Apfel. 48 zugelassene Sorten bilden meine Grundlage, sorgfältig zusammengestellt: vierzig
               Prozent süß, vierzig Prozent bitter, zwanzig Prozent sauer. Aus diesen Äpfeln wird Cidre, der ein bis zwei
               Jahre im Fass reift, bevor ich überhaupt destilliert werde.
@@ -198,14 +190,14 @@
               Mindestens zwei Jahre lagere ich in Eichen- oder Kastanienfässern, oft sechs oder mehr. Mit jedem Jahr
               wird die Farbe tiefer, mein Charakter runder und der Abgang länger.
               Meine Altersbezeichnungen folgen dieser Logik: Fine mindestens zwei Jahre, VO und Vieille Réserve vier
-              Jahre, VSOP vier Jahre, XO und Hors d’Âge mindestens sechs Jahre. Alles, was ich in der Flasche tue, ist
+              Jahre, VSOP vier Jahre, XO und Hors d'Âge mindestens sechs Jahre. Alles, was ich in der Flasche tue, ist
               Bonus. Die wahre Geschichte wächst im Holz.</p>
           </div>
         </div>
 
         <div class="Tradition text_box">
           <div class="text">
-            <h3>Tradition</h3>
+            <h2>Tradition</h2>
             <p>Zwischen zwei Gängen eines langen normannischen Festessens stehe ich auf dem Tisch. Le trou normand, das
               normannische Loch, ist kein Trinkritual aus Übermut. Es ist eine Geste des Genusses, die den Magen öffnet
               und den Abend in Abschnitte teilt.
@@ -216,13 +208,19 @@
               verstehen, dass manche Dinge ihre Zeit brauchen. Genau wie ich.</p>
           </div>
         </div>
-
-        <div class="Craft_Gallery">
-          <img src="./assets/img/img_craft_1.webp" alt="image 1">
-          <img src="./assets/img/img_craft_2.webp" alt="image 2">
-          <img src="./assets/img/img_craft_3.webp" alt="image 3">
-          <img src="./assets/img/img_craft_4.webp" alt="image 4">
-
+        <div class="gallery_wrapper">
+          <div class="image_container_gallery">
+            <img src="./assets/img/img_craft_1.webp" alt="image 1">
+          </div>
+          <div class="image_container_gallery">
+            <img src="./assets/img/img_craft_2.webp" alt="image 2">
+          </div>
+          <div class="image_container_gallery">
+            <img src="./assets/img/img_craft_3.webp" alt="image 3">
+          </div>
+          <div class="image_container_gallery">
+            <img src="./assets/img/img_craft_4.webp" alt="image 4">
+          </div>
         </div>
       </section>
 
@@ -246,7 +244,7 @@
 
       </section>
 
-<div class="divider"></div>
+      <div class="divider"></div>
 
 
   </main>
@@ -254,7 +252,7 @@
   <footer>
     <section id="footer">
       <div class="footer_container">
-        <h4>Seit 1553 aus der Normandie. Nur für Personen im gesetzlichen Trinkalter.</h4>
+        <h3>Seit 1553 aus der Normandie. Nur für Personen im gesetzlichen Trinkalter.</h3>
         <img src="./assets/icons/Logo_Calvados.svg" alt="Logo von Calvados">
 
 
