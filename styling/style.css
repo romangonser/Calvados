@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+*{
+    border: 0.5px solid red; /* zum debuggen */
+}
+
+
 :root {
     --primary-color: #1B1B1B;
     --secondary-color: #F6F6F6;
@@ -127,7 +132,7 @@ body {
 
 img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 
 }
@@ -152,9 +157,6 @@ img {
 /* ====================== */
 /* Grid / Layout */
 /* ====================== */
-
-
-
 
 
 .two-col {
@@ -201,10 +203,12 @@ img {
 /* Hero Section */
 /* ====================== */
 
+
 .hero_image_container {
     position: relative;
-    display: inline-block;
-    width: 100%;
+    width: 100vw;
+    height: 70vh;
+    overflow: hidden;
 }
 
 .hero_overlay {
@@ -217,7 +221,29 @@ img {
     pointer-events: none;
 }
 
+.name_hero {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-family: var(--font-primary);
+    font-size: 14vw;
+    font-weight: 400;
+    line-height: 11vw;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    
+    line-height: 0.85;
+    text-align: center;
+    letter-spacing: 0.05em;
+    
+    word-break: break-all;
+    width: 40%;
+    
 
+}
 
 
 
@@ -252,10 +278,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-}
 
 button svg {
     height: 16px;
@@ -265,7 +287,27 @@ button svg {
     fill: none;
 }
 
+
+button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transition: all 0.2s ease;
+    
+}
+
 button:hover svg {
     stroke: var(--primary-color);
     fill: none;
+}
+
+button:active {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(1px) scale(0.99);
+    transition: all 0.1s ease;
+}
+  
+  button:focus {
+  outline: 2px solid var(--accent-color);
+
 }
