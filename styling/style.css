@@ -1,13 +1,12 @@
 /* ------------ RESET ------------- */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
+       /* border: 0.5px solid red; */
+    /* zum debuggen */
 }
 
-*{
-    border: 0.5px solid red; /* zum debuggen */
-}
 
 
 :root {
@@ -117,13 +116,25 @@ p {
 
 
 /* ====================== */
-/* Colours */
+/* Main / Body */
 /* ====================== */
 
 body {
-    background-color: #1B1B1B;
-    color: #F6F6F6;
+
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
 }
+
+/* main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+
+} */
+
 
 
 /* ====================== */
@@ -134,6 +145,8 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
+    overflow: hidden;
 
 }
 
@@ -141,22 +154,35 @@ img {
 .image_container_content {
     display: grid;
     justify-self: center;
+    align-self: center;
     width: 80%;
     height: 80%;
 }
 
-/* .image_container_gallery {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    padding: var(--spacing-lg);
-    margin: 0;
-} */
+
 
 
 /* ====================== */
 /* Grid / Layout */
 /* ====================== */
+
+/* .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    width: 100%;
+}
+
+.hero_box_claim {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    gap: var(--spacing-xl);
+    text-align: center;
+    width: 100%;
+} */
+
 
 
 .two-col {
@@ -187,6 +213,8 @@ img {
 
 
 
+
+
 .gallery_wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -206,9 +234,18 @@ img {
 
 .hero_image_container {
     position: relative;
-    width: 100vw;
-    height: 70vh;
-    overflow: hidden;
+    width: 100%;
+    height: 75vh;
+    justify-content: center;
+    text-align: center;
+    /* overflow: hidden; */
+}
+
+.hero_image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
 }
 
 .hero_overlay {
@@ -218,7 +255,7 @@ img {
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, var(--primary-color), transparent);
-    pointer-events: none;
+
 }
 
 .name_hero {
@@ -227,24 +264,23 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-    font-family: var(--font-primary);
-    font-size: 14vw;
-    font-weight: 400;
-    line-height: 11vw;
-    color: var(--secondary-color);
+    height: 90%;
     opacity: 0.6;
     
-    line-height: 0.85;
-    text-align: center;
-    letter-spacing: 0.05em;
-    
-    word-break: break-all;
-    width: 40%;
-    
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.name_hero img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero_text {
+ width: 80%;
+}
 
 
 /* ====================== */
@@ -255,7 +291,6 @@ img {
     height: 1px;
     background-color: var(--secondary-color);
     width: 80%;
-    margin: 0px auto var(--spacing-lg) auto;
 }
 
 
@@ -292,7 +327,7 @@ button:hover {
     background-color: var(--accent-color);
     color: var(--primary-color);
     transition: all 0.2s ease;
-    
+
 }
 
 button:hover svg {
@@ -306,8 +341,8 @@ button:active {
     transform: translateY(1px) scale(0.99);
     transition: all 0.1s ease;
 }
-  
-  button:focus {
-  outline: 2px solid var(--accent-color);
+
+button:focus {
+    outline: 2px solid var(--accent-color);
 
 }
