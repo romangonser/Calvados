@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-       /* border: 0.5px solid red; */
+    /* border: 0.5px solid red; */
     /* zum debuggen */
 }
 
@@ -25,6 +25,8 @@
     /* .gallery_wrapper gap, .divider margin */
     --spacing-xl: 64px;
     /* .two-col gap, .one-col gap */
+
+    --width-Sections-line-lg: 80%;
 }
 
 
@@ -125,17 +127,22 @@ body {
     color: var(--secondary-color);
     margin: 0;
     padding: 0;
+
 }
 
-/* main {
+main {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    flex-direction: column;
     gap: var(--spacing-xl);
+}
 
+/* section {
+    margin-bottom: var(--spacing-xl);
 } */
-
-
 
 /* ====================== */
 /* Images */
@@ -155,8 +162,8 @@ img {
     display: grid;
     justify-self: center;
     align-self: center;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -188,17 +195,18 @@ img {
 .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-self: center;
+    width: var(--width-Sections-line-lg);
     gap: var(--spacing-xl);
-    width: 80%;
 }
 
 .one-col {
     display: grid;
     grid-template-columns: 1fr;
-    justify-self: center;
-    gap: var(--spacing-xl);
+    width: var(--width-Sections-line-lg);
+    /* gap: var(--spacing-sm); */
     text-align: center;
+    justify-items: center;
+    /* width: 80%; */
 }
 
 .two-col.reverse> :first-child {
@@ -212,6 +220,9 @@ img {
 }
 
 
+.cta {
+    margin-top: var(--spacing-md);
+}
 
 
 
@@ -234,7 +245,7 @@ img {
 
 .hero_image_container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 75vh;
     justify-content: center;
     text-align: center;
@@ -266,7 +277,7 @@ img {
     transform: translate(-50%, -50%);
     height: 90%;
     opacity: 0.6;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,10 +289,16 @@ img {
     object-fit: contain;
 }
 
-.hero_text {
- width: 80%;
-}
+/* ====================== */
+/* Text Boxes */
+/* ====================== */
 
+.text_box {
+ display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--spacing-md);
+}
 
 /* ====================== */
 /* Lines */
@@ -290,10 +307,16 @@ img {
 .divider {
     height: 1px;
     background-color: var(--secondary-color);
-    width: 80%;
+    width: var(--width-Sections-line-lg);
+
+    
 }
 
-
+.divider-claim {
+    height: 1px;
+    background-color: var(--secondary-color);
+    width: 100%;
+}
 
 /* ====================== */
 /* buttons */
@@ -311,6 +334,8 @@ button {
     border: 1px solid var(--secondary-color);
     padding: 12px 24px;
     cursor: pointer;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 }
 
 
