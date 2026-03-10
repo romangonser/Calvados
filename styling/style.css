@@ -140,9 +140,38 @@ main {
     gap: var(--spacing-xl);
 }
 
-/* section {
-    margin-bottom: var(--spacing-xl);
-} */
+
+
+/* ====================== */
+/* Header / Footer */
+/* ====================== */
+
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: var(--spacing-xl);
+}
+
+
+.logo_footer img{
+    height: 40px !important;
+width: auto !important;
+}
+
 
 /* ====================== */
 /* Images */
@@ -164,31 +193,10 @@ img {
     align-self: center;
     width: 100%;
     height: auto;
+    gap: var(--spacing-lg);
 }
 
 
-
-
-/* ====================== */
-/* Grid / Layout */
-/* ====================== */
-
-/* .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xl);
-    width: 100%;
-}
-
-.hero_box_claim {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-self: center;
-    gap: var(--spacing-xl);
-    text-align: center;
-    width: 100%;
-} */
 
 
 
@@ -203,7 +211,7 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     width: var(--width-Sections-line-lg);
-    /* gap: var(--spacing-sm); */
+    gap: var(--spacing-sm);
     text-align: center;
     justify-items: center;
     /* width: 80%; */
@@ -222,6 +230,7 @@ img {
 
 .cta {
     margin-top: var(--spacing-md);
+
 }
 
 
@@ -231,9 +240,10 @@ img {
     grid-template-columns: 1fr 1fr;
     margin: 0 auto;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-lg);
     grid-column-start: 1;
     grid-column-end: -1;
+    margin: var(--spacing-sm);
 }
 
 
@@ -334,8 +344,8 @@ button {
     border: 1px solid var(--secondary-color);
     padding: 12px 24px;
     cursor: pointer;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 
