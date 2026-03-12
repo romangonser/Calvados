@@ -113,7 +113,7 @@
             Normandie stamme. Das ist kein Marketing, sondern gesetzlich geregelt und wird vom Institut national de
             l'origine et de la qualité überwacht. Die angesehenste dieser Regionen ist Pays d’Auge. Hier gibt es ein
             eigenes AOC-Siegel, ein spezielles Mikroklima und eine Apfeltradition, die über Jahrhunderte gewachsen
-            ist.
+            ist.</p>
           <p>Von der Ernte bis zur Abfüllung bleibt jeder Schritt in meinem Herkunftsgebiet. Herkunft ist hier keine
             Dekoration, sondern Bedingung. Sie prägt mich und macht mich zu dem, was ich bin..</p>
           </p>
@@ -168,34 +168,47 @@
 
 
     <section id="producer" class="one-col" tabindex="0">
+      <div class="Producer_Text">
+        <h2>Produzenten, die für sich sprechen.</h2>
+      </div>
 
+      <div class="producer-box">
+        <swiper-container
+          class="producer-swiper"
+          centered-slides="true"
+          loop="true"
+          autoplay-delay="2000"
+          autoplay-disable-on-interaction="false"
+          keyboard="true"
+          pagination="true"
+          pagination-clickable="true"
+          slides-per-view="1.2"
+          space-between="16"
+          breakpoints='{"768": {"slidesPerView": 2.2, "spaceBetween": 18}, "1024": {"slidesPerView": 3.2, "spaceBetween": 20}}'
+          speed="800"
+        >
+          <swiper-slide class="producer-slide">
+            <img src="./assets/img/img_house_1.webp" alt="Produzent 1" loading="lazy">
+          </swiper-slide>
+          <swiper-slide class="producer-slide">
+            <img src="./assets/img/img_house_2.webp" alt="Produzent 2" loading="lazy">
+          </swiper-slide>
+          <swiper-slide class="producer-slide">
+            <img src="./assets/img/img_house_3.webp" alt="Produzent 3" loading="lazy">
+          </swiper-slide>
+          <swiper-slide class="producer-slide">
+            <img src="./assets/img/img_house_4.webp" alt="Produzent 4" loading="lazy">
+          </swiper-slide>
+          <swiper-slide class="producer-slide">
+            <img src="./assets/img/img_house_5.webp" alt="Produzent 5" loading="lazy">
+          </swiper-slide>
+        </swiper-container>
+      </div>
 
-        <div class="Producer_Text">
-          <h2>Produzenten, die für sich sprechen.</h2>
-        </div>
-
-        <div class="Producer_Slider">
-          <div class="slider">
-            <img src="./assets/img/img_house_1.webp" alt="Producer 1" class="slide active">
-            <img src="./assets/img/img_house_2.webp" alt="Producer 2" class="slide">
-            <img src="./assets/img/img_house_3.webp" alt="Producer 3" class="slide">
-            <img src="./assets/img/img_house_4.webp" alt="Producer 3" class="slide">
-            <img src="./assets/img/img_house_5.webp" alt="Producer 3" class="slide">
-          </div>
-
-          <div class="dot-navigation">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
-          </div>
-        </div>
-
-        <div class="CTA">
-          <button>weitere Produzenten</button>
-        </div>
-
-
-      </section>
+      <div class="CTA">
+        <button>weitere Produzenten</button>
+      </div>
+    </section>
 
     <div class="divider"></div>
 
@@ -324,6 +337,8 @@
       });
     }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>
 
 </body>
 
