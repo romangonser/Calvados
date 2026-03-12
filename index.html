@@ -27,10 +27,15 @@
 
   <header>
 <div class="header-container">
-    <div class="logo-header">
+    <a class="logo-header" href="./index.html">
       <img src="./assets/icons/Logo_Calvados.svg" alt="Logo von Calvados">
-    </div>
-    <nav class="header-list">
+    </a>
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="mobile-menu" class="header-list">
       <a href="#Salut">Über mich</a>
       <a href="#region">Region</a>
       <a href="#history">Geschichte</a>
@@ -67,7 +72,7 @@
 
 
 
-    <section id="Salut" class="two-col">
+    <section id="Salut" class="two-col" tabindex="0">
       <div class="Salut image_container_content">
         <img src="./assets/img/img_man_with_apple.webp"
           alt="Bild eines Mannes mit Apfel vor dem Gesicht und einem Glas mit dem Getränk Calvados in der Hand" />
@@ -95,7 +100,7 @@
 
     <div class="divider"></div>
 
-    <section id="region" class="two-col reverse">
+    <section id="region" class="two-col reverse" tabindex="0">
 
       <div class="region image_container_content">
         <img src="./assets/img/img_map_france.webp" alt="Bild einer Landschaft mit Apfelbäumen" />
@@ -118,7 +123,7 @@
 
     <div class="divider"></div>
 
-    <section id="history" class="two-col">
+    <section id="history" class="two-col" tabindex="0">
 
       <div class="history image_container_content">
         <img src="./assets/img/img_old_distellerie.webp"
@@ -162,16 +167,14 @@
     <div class="divider"></div>
 
 
-    <!-- 
-      <section id="producer" class="one-col">
+    <section id="producer" class="one-col" tabindex="0">
 
 
         <div class="Producer_Text">
-          <h2>Häuser, die für sich sprechen.</h2>
+          <h2>Produzenten, die für sich sprechen.</h2>
         </div>
 
         <div class="Producer_Slider">
-          //Slider//
           <div class="slider">
             <img src="./assets/img/img_house_1.webp" alt="Producer 1" class="slide active">
             <img src="./assets/img/img_house_2.webp" alt="Producer 2" class="slide">
@@ -188,16 +191,16 @@
         </div>
 
         <div class="CTA">
-          <button>weitere Häuser</button>
+          <button>weitere Produzenten</button>
         </div>
 
 
-      </section> -->
+      </section>
 
     <div class="divider"></div>
 
 
-    <section id="Craft_Tradition" class="two-col">
+    <section id="Craft_Tradition" class="two-col" tabindex="0">
 
       <div id="handwerk" class="Craft text_box">
         <div class="text">
@@ -252,7 +255,7 @@
 
     <div class="divider"></div>
 
-    <section id="Explore" class="one-col">
+    <section id="Explore" class="one-col" tabindex="0">
 
 
       <div class="Explore_Text">
@@ -275,7 +278,7 @@
   </main>
 
   <footer>
-    <section id="footer">
+    <section id="footer" tabindex="0">
       <div class="footer_container">
         <h3>Seit 1553 aus der Normandie. Nur für Personen im gesetzlichen Trinkalter.</h3>
         <div class="logo_footer">
@@ -288,6 +291,39 @@
     </section>
 
   </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const headerList = document.querySelector('.header-list');
+
+    if (menuToggle && headerList) {
+      const closeMenu = () => {
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('menu-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      headerList.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closeMenu();
+        }
+      });
+    }
+  </script>
 
 </body>
 
