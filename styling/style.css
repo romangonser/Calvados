@@ -29,22 +29,10 @@
     --width-Sections-line-lg: 80%;
 }
 
-
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: var(--spacing-sm);
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+html {
+    scroll-behavior: smooth;
 }
+
 
 
 /*          ../ für raus aus dem Ordner
@@ -147,6 +135,63 @@ main {
 /* ====================== */
 
 
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+
+    padding: var(--spacing-sm);
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+   width: 80%;
+    justify-content: space-between;
+}
+.header-list {
+  display: flex;
+  gap: 32px;
+  justify-content: space-around;
+}
+
+.header-list a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.header-list a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    scroll-margin-top: 150px;
+}
+
+.logo-header img {
+    height: 50px !important;
+    width: auto !important;
+    margin: 12px;
+}
+
+
 footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
@@ -167,9 +212,9 @@ footer {
 }
 
 
-.logo_footer img{
+.logo_footer img {
     height: 40px !important;
-width: auto !important;
+    width: auto !important;
 }
 
 
@@ -214,7 +259,7 @@ img {
     gap: var(--spacing-sm);
     text-align: center;
     justify-items: center;
-    /* width: 80%; */
+  
 }
 
 .two-col.reverse> :first-child {
@@ -304,7 +349,7 @@ img {
 /* ====================== */
 
 .text_box {
- display: flex;
+    display: flex;
     flex-direction: column;
     align-items: start;
     gap: var(--spacing-md);
@@ -319,7 +364,7 @@ img {
     background-color: var(--secondary-color);
     width: var(--width-Sections-line-lg);
 
-    
+
 }
 
 .divider-claim {
@@ -379,5 +424,34 @@ button:active {
 
 button:focus {
     outline: 2px solid var(--accent-color);
+
+}
+
+
+
+
+/*=======================*
+*  Responsive
+*=======================*/
+
+@media screen and (max-width: 768px) {
+
+
+
+    .two-col {
+
+        grid-template-columns: 1fr;
+    }
+
+    
+    .two-col{
+        .two-col.reverse> :first-child {
+            order: 1;
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
 
 }
