@@ -26,19 +26,22 @@
     --spacing-xl: 64px;
     /* .two-col gap, .one-col gap */
 
-    --width-Sections-line-lg: 80%;
+    --width-Sections-line-lg: 90%;
 }
 
 html {
     scroll-behavior: smooth;
+     overflow-x: visible;
 }
 
-html,
 body {
     overflow-x: hidden;
 }
 
 
+/* ====================== */
+/* Fonts / Typography */
+/* ====================== */
 
 h1,
 h2,
@@ -57,6 +60,7 @@ h1 {
 
 h2 {
     font-size: 48px;
+    color: var(--accent-color);
 }
 
 h3,
@@ -103,6 +107,7 @@ main {
 
 
 header {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
@@ -128,7 +133,7 @@ header {
 .header-container {
     display: flex;
     align-items: center;
-    width: 80%;
+    width: var(--width-Sections-line-lg);
     justify-content: space-between;
 }
 
@@ -147,6 +152,10 @@ header {
 
 .header-list a:hover {
     color: var(--accent-color);
+}
+
+.nav-craft-mobile {
+    display: none;
 }
 
 .menu-toggle {
@@ -178,13 +187,32 @@ header {
     height: 2px;
     background-color: var(--secondary-color);
     display: block;
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
 .menu-toggle:hover span {
     background-color: var(--accent-color);
 }
 
+body.menu-open .menu-toggle span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+body.menu-open .menu-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+body.menu-open .menu-toggle span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
 section {
+    scroll-margin-top: 150px;
+}
+
+#handwerk,
+#tradition {
     scroll-margin-top: 150px;
 }
 
@@ -480,7 +508,7 @@ swiper-container.producer-swiper {
     position: relative;
     overflow: hidden;
     --swiper-pagination-color: var(--accent-color);
-    --swiper-pagination-bullet-inactive-color: rgba(246, 246, 246, 0.35);
+    --swiper-pagination-bullet-inactive-color: var(--secondary-color);
     --swiper-pagination-bullet-inactive-opacity: 1;
 }
 
@@ -490,7 +518,7 @@ swiper-container.producer-swiper::after {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 34px;
+    width: 64px;
     z-index: 2;
     pointer-events: none;
 }
@@ -596,7 +624,30 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 *  Responsive
 *=======================*/
 
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+
+    .header-container,
+    .two-col,
+    .one-col,
+    .divider {
+        width: calc(100% - (var(--spacing-md) * 2));
+    }
+
+    h1 {
+        font-size: 56px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+}
+
 @media screen and (max-width: 768px) {
+
+    swiper-container.producer-swiper::before,
+    swiper-container.producer-swiper::after {
+        display: none;
+    }
 
    
     body.menu-open {
@@ -605,17 +656,19 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     .header-container {
         width: var(--width-Sections-line-lg);
+        justify-content: space-between;
     }
 
     .menu-toggle {
         display: flex;
+        margin-left: auto;
         z-index: 1101;
     }
 
     .header-list {
         position: fixed;
         inset: 0;
-        background-color: rgba(27, 27, 27, 0.98);
+        background-color: color-mix(in srgb, var(--primary-color) 95%, transparent);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -631,7 +684,17 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     .header-list a {
         font-size: 28px;
+        width: 100%;
+        display: block;
         text-align: right;
+    }
+
+    .nav-craft-desktop {
+        display: none;
+    }
+
+    .nav-craft-mobile {
+        display: block;
     }
 
     body.menu-open .header-list {
@@ -647,6 +710,27 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         grid-template-columns: 1fr;
     }
 
+    .gallery_wrapper {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 0;
+    }
+
+    #Craft_Tradition > #handwerk {
+        order: 1;
+    }
+
+    #Craft_Tradition > .gallery_wrapper {
+        order: 2;
+    }
+
+    #Craft_Tradition > #tradition {
+        order: 3;
+        width: 100%;
+        border-top: 1px solid var(--secondary-color);
+        padding-top: var(--spacing-xl);
+    }
+
 
     .two-col.reverse> :first-child {
         order: 1;
@@ -657,9 +741,3 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     }
 
 }
-
-
- swiper-container.producer-swiper::before,
-    swiper-container.producer-swiper::after {
-        display: none;
-    }
