@@ -31,7 +31,7 @@
 
 html {
     scroll-behavior: smooth;
-     overflow-x: visible;
+    overflow-x: visible;
 }
 
 body {
@@ -127,7 +127,7 @@ header {
 
     font-family: var(--font-secondary);
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .header-container {
@@ -238,12 +238,15 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .footer_container {
     display: flex;
     flex-direction: column;
+    justify-self: center;
     gap: var(--spacing-sm);
+    width: var(--width-Sections-line-lg);
 }
 
 
@@ -434,11 +437,11 @@ button {
     gap: 12px;
     font-family: var(--font-secondary);
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--secondary-color);
     background-color: transparent;
     border: 1px solid var(--secondary-color);
-    padding: 12px 24px;
+    padding: 12px 16px;
     cursor: pointer;
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
@@ -539,7 +542,7 @@ swiper-container.producer-swiper::after {
     align-items: center;
     gap: 4px;
     width: 100%;
-  
+
 }
 
 .producer-dot {
@@ -649,7 +652,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         display: none;
     }
 
-   
+
     body.menu-open {
         overflow: hidden;
     }
@@ -703,10 +706,11 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         pointer-events: auto;
     }
 
-
-
+main {
+    gap: var(--spacing-lg);
+}
     .two-col {
-
+gap: var(--spacing-md);
         grid-template-columns: 1fr;
     }
 
@@ -716,15 +720,15 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         margin: 0;
     }
 
-    #Craft_Tradition > #handwerk {
+    #Craft_Tradition>#handwerk {
         order: 1;
     }
 
-    #Craft_Tradition > .gallery_wrapper {
+    #Craft_Tradition>.gallery_wrapper {
         order: 2;
     }
 
-    #Craft_Tradition > #tradition {
+    #Craft_Tradition>#tradition {
         order: 3;
         width: 100%;
         border-top: 1px solid var(--secondary-color);
@@ -736,8 +740,40 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         order: 1;
     }
 
+
+
+    h1 {
+        font-size: 32px;
+
+    }
+
     h2 {
+        font-size: 40px;
         text-align: center;
     }
+
+    h3,
+    p {
+        font-size: 18px;
+
+    }
+
+
+
+button {
+
+    gap: 12px;
+    font-size: 20px;
+padding: 8px 12px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+
+button svg {
+
+    width: 24px;
+
+}
 
 }
