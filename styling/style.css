@@ -31,7 +31,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: visible;
+    overflow-x: clip;
 }
 
 body {
@@ -135,17 +135,21 @@ header {
     align-items: center;
     width: var(--width-Sections-line-lg);
     justify-content: space-between;
+    gap: 32px;
 }
 
 .header-list {
     display: flex;
-    gap: 32px;
-    justify-content: space-around;
+    gap: 24px;
+    justify-content: flex-end;
+    white-space: nowrap;
 }
 
 .header-list a {
     color: var(--secondary-color);
     text-decoration: none;
+    text-align: center;
+    line-height: 1.15;
     transition: color 0.2s ease;
     cursor: pointer;
 }
@@ -339,7 +343,6 @@ img {
     gap: var(--spacing-lg);
     grid-column-start: 1;
     grid-column-end: -1;
-    margin: var(--spacing-sm);
 }
 
 
@@ -351,7 +354,7 @@ img {
 
 .hero_image_container {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 75vh;
     justify-content: center;
     text-align: center;
@@ -629,7 +632,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 *  Responsive
 *=======================*/
 
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+@media screen and (max-width: 1024px){
 
     .header-container,
     .two-col,
@@ -644,14 +647,6 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     h2 {
         font-size: 40px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    swiper-container.producer-swiper::before,
-    swiper-container.producer-swiper::after {
-        display: none;
     }
 
 
@@ -687,18 +682,24 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         z-index: 1100;
     }
 
-    .header-list a {
+        .header-list a {
         font-size: 28px;
         width: 100%;
         display: block;
         text-align: right;
     }
 
-    .nav-craft-desktop {
+    /* Mobile: Kombi-Link "Handwerk/Tradition" ausblenden */
+    .header-list a.nav-craft-desktop,
+    .header-list li.nav-craft-desktop,
+    .header-list li.nav-craft-desktop > a {
         display: none;
     }
 
-    .nav-craft-mobile {
+    /* Mobile: getrennte Links anzeigen */
+    .header-list a.nav-craft-mobile,
+    .header-list li.nav-craft-mobile,
+    .header-list li.nav-craft-mobile > a {
         display: block;
     }
 
@@ -707,6 +708,16 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         visibility: visible;
         pointer-events: auto;
     }
+}
+
+@media screen and (max-width: 768px) {
+
+    swiper-container.producer-swiper::before,
+    swiper-container.producer-swiper::after {
+        display: none;
+    }
+
+
 
 main {
     gap: var(--spacing-lg);
