@@ -226,8 +226,8 @@ section {
 }
 
 .logo-header img {
-    height: 50px !important;
-    width: auto !important;
+    height: 50px;
+    width: auto;
     margin: 12px;
 }
 
@@ -244,7 +244,7 @@ footer {
     margin-bottom: 80px;
     text-align: center;
 
-    
+
 }
 
 .footer_container {
@@ -343,7 +343,22 @@ img {
     gap: var(--spacing-lg);
     grid-column-start: 1;
     grid-column-end: -1;
+    padding: var(--spacing-lg);
 }
+
+.Explore_image{
+    padding: var(--spacing-lg);
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.Explore_image img {
+    object-position: center 80%;
+}
+
+
+
 
 
 
@@ -354,11 +369,11 @@ img {
 
 .hero_image_container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 75vh;
     justify-content: center;
     text-align: center;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .hero_image_container img {
@@ -632,7 +647,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 *  Responsive
 *=======================*/
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
 
     .header-container,
     .two-col,
@@ -647,6 +662,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     h2 {
         font-size: 40px;
+        text-align: center;
     }
 
 
@@ -682,7 +698,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         z-index: 1100;
     }
 
-        .header-list a {
+    .header-list a {
         font-size: 28px;
         width: 100%;
         display: block;
@@ -692,14 +708,14 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     /* Mobile: Kombi-Link "Handwerk/Tradition" ausblenden */
     .header-list a.nav-craft-desktop,
     .header-list li.nav-craft-desktop,
-    .header-list li.nav-craft-desktop > a {
+    .header-list li.nav-craft-desktop>a {
         display: none;
     }
 
     /* Mobile: getrennte Links anzeigen */
     .header-list a.nav-craft-mobile,
     .header-list li.nav-craft-mobile,
-    .header-list li.nav-craft-mobile > a {
+    .header-list li.nav-craft-mobile>a {
         display: block;
     }
 
@@ -710,50 +726,64 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     }
 }
 
-@media screen and (max-width: 768px) {
 
-    swiper-container.producer-swiper::before,
-    swiper-container.producer-swiper::after {
-        display: none;
-    }
+
+swiper-container.producer-swiper::before,
+swiper-container.producer-swiper::after {
+    display: none;
+}
+
+
+@media screen and (max-width: 1024px) {
 
 
 
 main {
     gap: var(--spacing-lg);
 }
-    .two-col {
-gap: var(--spacing-md);
-        grid-template-columns: 1fr;
-    }
 
-    .gallery_wrapper {
-        grid-template-columns: 1fr;
-        width: 100%;
-        margin: 0;
-    }
-
-    #Craft_Tradition>#handwerk {
-        order: 1;
-    }
-
-    #Craft_Tradition>.gallery_wrapper {
-        order: 2;
-    }
-
-    #Craft_Tradition>#tradition {
-        order: 3;
-        width: 100%;
-        border-top: 1px solid var(--secondary-color);
-        padding-top: var(--spacing-xl);
-    }
+.two-col {
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr;
+}
 
 
-    .two-col.reverse> :first-child {
-        order: 1;
-    }
+.image_container_content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-bottom: 5vw;
+    padding-top: 5vw;
+}
+
+.gallery_wrapper {
+    gap: var(--spacing-md);
+}
 
 
+
+#Craft_Tradition>#handwerk {
+    order: 1;
+}
+
+#Craft_Tradition>.gallery_wrapper {
+    order: 2;
+}
+
+#Craft_Tradition>#tradition {
+    order: 3;
+    width: 100%;
+    border-top: 1px solid var(--secondary-color);
+    padding-top: var(--spacing-xl);
+}
+
+
+.two-col.reverse> :first-child {
+    order: 0;
+}
+
+}
+
+@media screen and (max-width: 768px) {
 
     h1 {
         font-size: 32px;
@@ -762,7 +792,7 @@ gap: var(--spacing-md);
 
     h2 {
         font-size: 40px;
-        text-align: center;
+
     }
 
     h3,
@@ -772,21 +802,39 @@ gap: var(--spacing-md);
     }
 
 
+    .logo-header img {
+        height: 32px;
+        width: auto;
+        margin: 12px;
+    }
 
-button {
-
-    gap: 12px;
-    font-size: 20px;
-padding: 8px 12px;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+.gallery_wrapper {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0;
+    gap: var(--spacing-sm);
+     padding: 0px;
 }
 
 
-button svg {
-
-    width: 24px;
+.Explore_image{
+ padding: 0px;
 
 }
+    button {
+
+        gap: 12px;
+        font-size: 20px;
+        padding: 8px 12px;
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+
+    button svg {
+
+        width: 24px;
+
+    }
 
 }
