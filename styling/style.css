@@ -88,8 +88,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-self: center;
-    justify-items: center;
     flex-direction: column;
     gap: var(--spacing-xl);
 }
@@ -180,14 +178,35 @@ header {
     box-shadow: none;
 }
 
-body.using-keyboard .menu-toggle:focus,
-body.using-keyboard .menu-toggle:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 4px;
+/* ====================== */
+/* Accessibility / Focus States */
+/* ====================== */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--spacing-sm);
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    font-size: 16px;
+    z-index: 9999;
+    text-decoration: none;
 }
 
-body.using-keyboard .header-list a:focus,
-body.using-keyboard .header-list a:focus-visible {
+.skip-link:focus-visible {
+    top: var(--spacing-sm);
+}
+
+/* Standard-Focus komplett ausblenden – :focus-visible übernimmt */
+*:focus {
+    outline: none;
+}
+
+/* Keyboard-Focus: oranger Ring für alle interaktiven Elemente */
+*:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 4px;
 }
@@ -231,10 +250,8 @@ section {
     line-height: 0;
 }
 
-body.using-keyboard .logo-header:focus,
-body.using-keyboard .logo-header:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 4px;
+/* Logo */
+.logo-header:focus-visible {
     position: relative;
     z-index: 1102;
 }
@@ -387,6 +404,7 @@ img {
     position: relative;
     width: 100vw;
     height: 75svh;
+    min-height: 75svh;
     justify-content: center;
     text-align: center;
     overflow: hidden;
@@ -458,12 +476,6 @@ img {
     width: 100%;
 }
 
-body.using-keyboard section:focus,
-body.using-keyboard section:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 4px;
-}
-
 /* ====================== */
 /* buttons */
 /* ====================== */
@@ -513,14 +525,6 @@ button:active {
     transition: all 0.1s ease;
 }
 
-body.using-keyboard button:focus,
-body.using-keyboard button:focus-visible {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 4px;
-}
-
-
-
 /* ====================== */
 /* Producer Slider */
 /* ====================== */
@@ -531,7 +535,6 @@ body.using-keyboard button:focus-visible {
 
 .producer-box {
     width: 100%;
-    max-width: auto;
     display: flex;
     flex-direction: column;
 
@@ -686,12 +689,6 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         text-align: center;
     }
 
-    section:focus,
-    section:focus-visible {
-        outline: none;
-    }
-
-
     body.menu-open {
         overflow: hidden;
     }
@@ -813,10 +810,8 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     }
 
     .header-list {
-        justify-content: flex-start;
-        align-items: flex-end;
         gap: var(--spacing-md);
-        padding: calc(var(--spacing-xl) + var(--spacing-lg)) 10% var(--spacing-lg);
+ 
     }
 
     .header-list a {
