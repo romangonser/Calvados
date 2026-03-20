@@ -251,7 +251,7 @@ footer {
     flex-direction: column;
     justify-self: center;
     gap: var(--spacing-sm);
-    width: var(--width-Sections-line-lg);
+    /* width: var(--width-Sections-line-lg); */
 }
 
 
@@ -443,7 +443,7 @@ img {
     width: 100%;
 }
 
-section:focus-visible {
+section:focus, :focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 8px;
 }
