@@ -371,7 +371,7 @@ img {
 .hero_image_container {
     position: relative;
     width: 100vw;
-    height: 75vh;
+    height: 75svh;
     justify-content: center;
     text-align: center;
     overflow: hidden;
@@ -651,7 +651,8 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     header {
         z-index: 1200;
-    }
+        padding: var(--spacing-xs);
+    }   
 
     .header-container,
     .two-col,
@@ -704,7 +705,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     }
 
     .header-list a {
-        font-size: 28px;
+        font-size: 32px;
         width: 100%;
         display: block;
         text-align: right;
