@@ -461,7 +461,7 @@ img {
 body.using-keyboard section:focus,
 body.using-keyboard section:focus-visible {
     outline: 2px solid var(--accent-color);
-    outline-offset: 8px;
+    outline-offset: 4px;
 }
 
 /* ====================== */
@@ -684,6 +684,11 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     h2 {
         font-size: 40px;
         text-align: center;
+    }
+
+    section:focus,
+    section:focus-visible {
+        outline: none;
     }
 
 
