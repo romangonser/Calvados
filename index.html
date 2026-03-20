@@ -294,7 +294,7 @@
   <footer>
     <section id="footer" tabindex="0">
       <div class="footer_container">
-        <h3>Seit 1553 aus der Normandie. Nur für Personen im gesetzlichen Trinkalter.</h3>
+        <h3>Seit 1553 aus der Normandie.<br>Nur für Personen im gesetzlichen Trinkalter.</h3>
         <div class="logo_footer">
           <img src="./assets/icons/Logo_Calvados.svg" alt="Logo von Calvados">
         </div>
@@ -312,6 +312,16 @@
   </footer>
 
   <script>
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab') {
+        document.body.classList.add('using-keyboard');
+      }
+    });
+
+    document.addEventListener('pointerdown', () => {
+      document.body.classList.remove('using-keyboard');
+    });
+
     const menuToggle = document.querySelector('.menu-toggle');
     const headerList = document.querySelector('.header-list');
 
