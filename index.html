@@ -322,8 +322,21 @@
       };
 
       menuToggle.addEventListener('click', () => {
+        const isOpening = !document.body.classList.contains('menu-open');
+
+        if (isOpening) {
+          const rect = menuToggle.getBoundingClientRect();
+          menuToggle.style.setProperty('--menu-toggle-top', `${rect.top}px`);
+          menuToggle.style.setProperty('--menu-toggle-left', `${rect.left}px`);
+        }
+
         const isOpen = document.body.classList.toggle('menu-open');
         menuToggle.setAttribute('aria-expanded', String(isOpen));
+
+        if (!isOpen) {
+          menuToggle.style.removeProperty('--menu-toggle-top');
+          menuToggle.style.removeProperty('--menu-toggle-left');
+        }
       });
 
       headerList.querySelectorAll('a').forEach((link) => {

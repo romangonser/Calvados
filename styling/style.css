@@ -31,9 +31,6 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
     overflow-x: hidden;
 }
 
@@ -67,11 +64,10 @@ p {
     font-family: var(--font-secondary);
     font-style: normal;
     font-stretch: normal;
-    font-weight: 300;
+       font-weight: 300;
     font-size: 20px;
     margin: 0%;
 }
-
 
 
 
@@ -133,7 +129,7 @@ header {
     align-items: center;
     width: var(--width-Sections-line-lg);
     justify-content: space-between;
-    gap: 32px;
+    gap: var(--spacing-lg);
 }
 
 .header-list {
@@ -182,6 +178,11 @@ header {
     border: none;
     outline: none;
     box-shadow: none;
+}
+
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
 }
 
 .menu-toggle span {
@@ -238,8 +239,8 @@ footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 40px;
-    margin-bottom: 80px;
+    margin-top: calc(var(--spacing-lg) + var(--spacing-xs));
+    margin-bottom: calc(var(--spacing-xl) + var(--spacing-sm));
     text-align: center;
 
 
@@ -255,9 +256,9 @@ footer {
 
 
 .logo_footer img {
-    margin-top: var(--spacing-xl);
-    height: 40px !important;
-    width: auto !important;
+    margin: var(--spacing-xl) auto 0;
+    height: 40px;
+    width: auto;
 }
 
 .copyright-section {
@@ -274,11 +275,12 @@ footer {
 /* ====================== */
 
 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    overflow: hidden;
+       display: block;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       object-position: center center;
+       overflow: hidden;
 
 }
 
@@ -290,6 +292,7 @@ img {
     width: 100%;
     height: auto;
     gap: var(--spacing-lg);
+    padding: 0 5vw;
 }
 
 
@@ -498,7 +501,6 @@ button:focus,
 button:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 4px;
-    box-shadow: none;
 }
 
 
@@ -647,6 +649,10 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
 @media screen and (max-width: 1024px) {
 
+    header {
+        z-index: 1200;
+    }
+
     .header-container,
     .two-col,
     .one-col,
@@ -668,15 +674,16 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         overflow: hidden;
     }
 
-    .header-container {
-        width: var(--width-Sections-line-lg);
-        justify-content: space-between;
-    }
-
     .menu-toggle {
         display: flex;
         margin-left: auto;
         z-index: 1101;
+    }
+
+    body.menu-open .menu-toggle {
+        position: fixed;
+        top: var(--menu-toggle-top, var(--spacing-sm));
+        left: var(--menu-toggle-left, calc(100vw - var(--spacing-md) - 36px));
     }
 
     .header-list {
@@ -722,66 +729,86 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         visibility: visible;
         pointer-events: auto;
     }
-}
+    swiper-container.producer-swiper::before,
+    swiper-container.producer-swiper::after {
+        display: none;
+    }
+
+    main {
+        gap: var(--spacing-lg);
+    }
+
+    .two-col {
+        gap: var(--spacing-lg);
+        grid-template-columns: 1fr;
+    }
+
+
+    .image_container_content {
+        padding-left: 15vw;
+        padding-right: 15vw;
+        padding-bottom: 5vw;
+        padding-top: 5vw;
+    }
+
+    .gallery_wrapper {
+        gap: var(--spacing-md);
+    }
 
 
 
-swiper-container.producer-swiper::before,
-swiper-container.producer-swiper::after {
-    display: none;
-}
+    #Craft_Tradition>#handwerk {
+        order: 1;
+    }
+
+    #Craft_Tradition>.gallery_wrapper {
+        order: 2;
+    }
+
+    #Craft_Tradition>#tradition {
+        order: 3;
+        width: 100%;
+        border-top: 1px solid var(--secondary-color);
+        padding-top: var(--spacing-xl);
+    }
 
 
-@media screen and (max-width: 1024px) {
-
-
-
-main {
-    gap: var(--spacing-lg);
-}
-
-.two-col {
-    gap: var(--spacing-lg);
-    grid-template-columns: 1fr;
-}
-
-
-.image_container_content {
-    padding-left: 15vw;
-    padding-right: 15vw;
-    padding-bottom: 5vw;
-    padding-top: 5vw;
-}
-
-.gallery_wrapper {
-    gap: var(--spacing-md);
-}
-
-
-
-#Craft_Tradition>#handwerk {
-    order: 1;
-}
-
-#Craft_Tradition>.gallery_wrapper {
-    order: 2;
-}
-
-#Craft_Tradition>#tradition {
-    order: 3;
-    width: 100%;
-    border-top: 1px solid var(--secondary-color);
-    padding-top: var(--spacing-xl);
-}
-
-
-.two-col.reverse> :first-child {
-    order: 0;
-}
+    .two-col.reverse> :first-child {
+        order: 0;
+    }
 
 }
 
 @media screen and (max-width: 768px) {
+
+    .header-container,
+    .two-col,
+    .one-col,
+    .divider {
+        width: calc(100% - (var(--spacing-sm) * 2));
+    }
+
+    .header-list {
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: var(--spacing-md);
+        padding: calc(var(--spacing-xl) + var(--spacing-lg)) var(--spacing-sm) var(--spacing-lg);
+    }
+
+    .header-list a {
+        font-size: 24px;
+    }
+
+    main {
+        gap: var(--spacing-md);
+    }
+
+    .image_container_content {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        padding-top: var(--spacing-sm);
+    }
 
     h1 {
         font-size: 32px;
@@ -811,12 +838,12 @@ main {
     width: 100%;
     margin: 0;
     gap: var(--spacing-sm);
-     padding: 0px;
+     padding: 0;
 }
 
 
 .Explore_image{
- padding: 0px;
+ padding: 0;
 
 }
     button {
