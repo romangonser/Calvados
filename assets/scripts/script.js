@@ -1,10 +1,5 @@
-// Scriot für die dynamische Anpassung der Hero-Section Höhe und die Swiper-Initialisierung
 
 document.addEventListener('DOMContentLoaded', () => {
-  const vh = window.innerHeight * 0.75;
-  document.documentElement.style
-    .setProperty('--hero-h', vh + 'px');
-
 
   // Swiper v12 Web Components – Konfiguration via JS
   const swiperEl = document.querySelector('.producer-swiper');
