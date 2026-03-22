@@ -720,7 +720,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     .header-list {
         position: fixed;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.92);
+        background-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
         display: flex;
         flex-direction: column;
         justify-content: center;
