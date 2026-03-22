@@ -101,7 +101,7 @@ if (menuToggle && headerList) {
    Accessibility: Section Navigation
    ===================================================== */
 document.querySelectorAll('section[id]').forEach(section => {
-  section.setAttribute('tabindex', '0');
+  section.setAttribute('tabindex', '-1');
 });
 
 /* Anchor-Links: Fokus setzen, dann blur für saubere UX */
