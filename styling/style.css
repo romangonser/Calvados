@@ -415,8 +415,8 @@ img {
 .hero_image_container {
     position: relative;
     width: 100vw;
-    height: 75svh;
-    min-height: 75svh;
+    height: var(--hero-h, 75svh);
+    min-height: var(--hero-h, 75svh);
     justify-content: center;
     text-align: center;
     overflow: hidden;
