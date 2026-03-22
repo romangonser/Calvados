@@ -66,6 +66,12 @@ if (menuToggle && headerList) {
     const isOpening = !document.body.classList.contains('menu-open');
 
     if (isOpening) {
+      if (header) {
+        header.style.setProperty('transition', 'none');
+        header.classList.remove('header-hidden');
+        header.getBoundingClientRect();
+        header.style.removeProperty('transition');
+      }
       const rect = menuToggle.getBoundingClientRect();
       menuToggle.style.setProperty('--menu-toggle-top', `${rect.top}px`);
       menuToggle.style.setProperty('--menu-toggle-left', `${rect.left}px`);
@@ -131,6 +137,13 @@ window.addEventListener('scroll', () => {
   isTicking = true;
 
   window.requestAnimationFrame(() => {
+    if (document.body.classList.contains('menu-open')) {
+      header.classList.remove('header-hidden');
+      lastScrollY = window.scrollY;
+      isTicking = false;
+      return;
+    }
+
     const currentScrollY = window.scrollY;
     const isScrollingDown = currentScrollY > lastScrollY + 4;
     const isScrollingUp = currentScrollY < lastScrollY - 4;
