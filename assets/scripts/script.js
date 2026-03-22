@@ -101,7 +101,7 @@ if (menuToggle && headerList) {
    Accessibility: Section Navigation
    ===================================================== */
 document.querySelectorAll('section[id]').forEach(section => {
-  section.setAttribute('tabindex', '-1');
+  section.setAttribute('tabindex', '0');
 });
 
 /* Anchor-Links: Fokus setzen, dann blur für saubere UX */
@@ -113,8 +113,10 @@ document.querySelectorAll('.header-list a[href^="#"]').forEach(link => {
     if (targetSection) {
       e.preventDefault();
       targetSection.scrollIntoView({ behavior: 'smooth' });
+      if (window.matchMedia('(max-width: 1024px)').matches) {
+        return;
+      }
       targetSection.focus({ preventScroll: true });
-      targetSection.blur();
     }
   });
 });
