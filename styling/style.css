@@ -64,7 +64,7 @@ p {
     font-family: var(--font-secondary);
     font-style: normal;
     font-stretch: normal;
-       font-weight: 300;
+    font-weight: 300;
     font-size: 20px;
     margin: 0%;
 }
@@ -319,12 +319,12 @@ footer {
 /* ====================== */
 
 img {
-       display: block;
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-       object-position: center center;
-       overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    overflow: hidden;
 
 }
 
@@ -391,7 +391,7 @@ img {
     padding: var(--spacing-lg);
 }
 
-.Explore_image{
+.Explore_image {
     padding: var(--spacing-lg);
     width: 100%;
     max-height: 500px;
@@ -412,7 +412,7 @@ img {
 /* ====================== */
 
 .hero_image_container {
-  position: relative;
+    position: relative;
     width: 100vw;
     height: var(--hero-h, 75svh);
     min-height: var(--hero-h, 75svh);
@@ -437,12 +437,29 @@ img {
     object-position: center center;
 }
 
-.hero-bg       { z-index: 0; }
-.hero-obj-adam { z-index: 2; }
-.hero-obj-gott { z-index: 2; }
-.hero-obj-drop { z-index: 1; }
-.hero_overlay  { z-index: 3; }
-.name_hero     { z-index: 4; }
+.hero-bg {
+    z-index: 0;
+}
+
+.hero-obj-adam {
+    z-index: 2;
+}
+
+.hero-obj-gott {
+    z-index: 2;
+}
+
+.hero-obj-drop {
+    z-index: 1;
+}
+
+.hero_overlay {
+    z-index: 3;
+}
+
+.name_hero {
+    z-index: 4;
+}
 
 /* Startzustände – vor Animation */
 .hero-obj-adam {
@@ -465,6 +482,7 @@ img {
 
 
 @media (prefers-reduced-motion: reduce) {
+
     .hero-obj-adam,
     .hero-obj-gott,
     .hero-obj-drop {
@@ -492,6 +510,7 @@ img {
         transform: translateX(-100%);
         opacity: 1;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -503,6 +522,7 @@ img {
         transform: translateX(100%);
         opacity: 1;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -514,12 +534,15 @@ img {
         transform: translateY(-10%);
         opacity: 0;
     }
+
     20% {
         opacity: 1;
     }
+
     75% {
         opacity: 1;
     }
+
     100% {
         transform: translateY(20%);
         opacity: 0;
@@ -551,6 +574,83 @@ img {
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, var(--primary-color), transparent);
+}
+
+
+/* ====================== */
+/* Man with apple */
+/* ====================== */
+
+.man-apple-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Erstes Bild gibt die Höhe vor – normal im Flow */
+.man-apple-container .man-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+}
+
+/* Arm und Mann liegen drüber */
+.man-apple-container .man-arm,
+.man-apple-container .man-man {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animation */
+.man-apple-container .man-arm {
+    transform-origin: center center;
+    animation: arm-swing 4s ease-in-out infinite;
+}
+
+@keyframes arm-swing {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(-18deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+
+/* ====================== */
+/* Distellerie */
+/* ====================== */
+
+.distellerie_container {
+    position: relative;
+    width: 100%;
+    display: block; /* verhält sich wie img */
+}
+
+.distellerie_container .distellerie-bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+    object-position: unset;
+}
+
+.distellerie_container .distellerie-wheel {
+    position: absolute;
+    top: 54%;
+    left: 28%;
+    width: 45%;
+    height: auto;
+    object-fit: unset;
+    transform-origin: center center;
+    animation: wheel-rotate 6s linear infinite;
+}
+
+@keyframes wheel-rotate {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* ====================== */
@@ -777,7 +877,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     header {
         z-index: 1200;
         padding: var(--spacing-xs);
-    }   
+    }
 
     .header-container,
     .two-col,
@@ -856,6 +956,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         visibility: visible;
         pointer-events: auto;
     }
+
     swiper-container.producer-swiper::before,
     swiper-container.producer-swiper::after {
         display: none;
@@ -904,22 +1005,25 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         order: 0;
     }
 
-@keyframes hero-drop-move-fade {
-    0% {
-        transform: translateY(-10%);
-        opacity: 0;
+    @keyframes hero-drop-move-fade {
+        0% {
+            transform: translateY(-10%);
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        75% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(13%);
+            opacity: 0;
+        }
     }
-    20% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(13%);
-        opacity: 0;
-    }
-}
 
 }
 
@@ -934,7 +1038,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 
     .header-list {
         gap: var(--spacing-md);
- 
+
     }
 
     .header-list a {
@@ -946,7 +1050,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     }
 
     .image_container_content {
-      padding-left: 16vw;
+        padding-left: 16vw;
         padding-right: 16vw;
 
     }
@@ -974,23 +1078,24 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         margin: 12px;
     }
 
-.gallery_wrapper {
-    grid-template-columns: 1fr;
-    width: 100%;
-    margin: 0;
-    gap: var(--spacing-sm);
-     padding: 0;
-}
+    .gallery_wrapper {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 0;
+        gap: var(--spacing-sm);
+        padding: 0;
+    }
 
     #Craft_Tradition>#tradition {
         padding-top: var(--spacing-md);
     }
 
 
-.Explore_image{
- padding: 0;
+    .Explore_image {
+        padding: 0;
 
-}
+    }
+
     button {
 
         gap: 12px;
