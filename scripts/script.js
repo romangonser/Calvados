@@ -1,12 +1,15 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Swiper v12 Web Components – Konfiguration via JS
+  // Header-Referenz ganz oben – wird von Menu und Scroll-Handler gebraucht
+  const header = document.querySelector('header');
+
+  /* =====================================================
+     Swiper – Produzenten Slider
+     ===================================================== */
   const swiperEl = document.querySelector('.producer-swiper');
   const paginationEl = document.querySelector('.producer-pagination');
 
   if (swiperEl) {
-    // Swiper konfigurieren (ohne built-in pagination)
     Object.assign(swiperEl, {
       centeredSlides: true,
       loop: true,
@@ -66,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       const isOpening = !document.body.classList.contains('menu-open');
 
-      if (isOpening) {
-        if (header) {
-          header.style.setProperty('transition', 'none');
-          header.classList.remove('header-hidden');
-          header.getBoundingClientRect();
-          header.style.removeProperty('transition');
-        }
+      if (isOpening && header) {
+        // Header sofort einblenden wenn Menü öffnet – ohne Transition-Flicker
+        header.style.setProperty('transition', 'none');
+        header.classList.remove('header-hidden');
+        header.getBoundingClientRect(); // Reflow erzwingen
+        header.style.removeProperty('transition');
+
         const rect = menuToggle.getBoundingClientRect();
         menuToggle.style.setProperty('--menu-toggle-top', `${rect.top}px`);
         menuToggle.style.setProperty('--menu-toggle-left', `${rect.left}px`);
@@ -111,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     section.setAttribute('tabindex', '-1');
   });
 
-  /* Anchor-Links: Fokus setzen, dann blur für saubere UX */
+  // Anchor-Links: smooth scroll, dann focus+blur für saubere UX (kein Ring)
   document.querySelectorAll('.header-list a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href').slice(1);
@@ -126,18 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const header = document.querySelector('header');
+  /* =====================================================
+     Header – Hide on scroll down, show on scroll up
+     ===================================================== */
   let lastScrollY = window.scrollY;
   let isTicking = false;
 
   window.addEventListener('scroll', () => {
-    if (!header || isTicking) {
-      return;
-    }
+    if (!header || isTicking) return;
 
     isTicking = true;
 
     window.requestAnimationFrame(() => {
+      // Menü offen → Header immer sichtbar
       if (document.body.classList.contains('menu-open')) {
         header.classList.remove('header-hidden');
         lastScrollY = window.scrollY;

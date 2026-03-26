@@ -411,9 +411,8 @@ img {
 /* Hero Section */
 /* ====================== */
 
-
 .hero_image_container {
-    position: relative;
+  position: relative;
     width: 100vw;
     height: var(--hero-h, 75svh);
     min-height: var(--hero-h, 75svh);
@@ -422,32 +421,116 @@ img {
     overflow: hidden;
 }
 
-.hero_image_container img {
+/* Alle Hero-Ebenen übereinander, gleiche Ausgangsgrösse */
+.hero-bg,
+.hero-obj-adam,
+.hero-obj-gott,
+.hero-obj-drop,
+.hero_overlay,
+.name_hero {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
 }
 
-.hero_overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, var(--primary-color), transparent);
+.hero-bg       { z-index: 0; }
+.hero-obj-adam { z-index: 3; }
+.hero-obj-gott { z-index: 3; }
+.hero-obj-drop { z-index: 2; }
+.hero_overlay  { z-index: 1; }
+.name_hero     { z-index: 1; }
 
+/* Startzustände – vor Animation */
+.hero-obj-adam {
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
-.name_hero {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 90%;
-    opacity: 0.6;
+.hero-obj-gott {
+    transform: translateX(100%);
+    opacity: 0;
+}
 
+.hero-obj-drop {
+    transform: translateY(-10%);
+    opacity: 0;
+}
+
+/* Hero-Animationen rein per CSS */
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-obj-adam,
+    .hero-obj-gott,
+    .hero-obj-drop {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.hero_image_container .hero-obj-adam {
+    animation: hero-adam-in 4s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+}
+
+.hero_image_container .hero-obj-gott {
+    animation: hero-gott-in 4s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+}
+
+.hero_image_container .hero-obj-drop {
+    animation: hero-drop-move-fade 1.5s cubic-bezier(0.22, 1, 0.36, 1) 3.8s forwards;
+}
+
+@keyframes hero-adam-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hero-gott-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hero-drop-move-fade {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+}
+
+
+.name_hero {
+
+    height: 100%;
+    opacity: 0.6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -457,6 +540,15 @@ img {
     height: 100%;
     width: auto;
     object-fit: contain;
+}
+
+.hero_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--primary-color), transparent);
 }
 
 /* ====================== */
