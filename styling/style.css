@@ -107,7 +107,7 @@ header {
     z-index: 1000;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px 0 rgba(27, 27, 27, 0.25);
 
     padding: var(--spacing-sm);
 
@@ -128,7 +128,7 @@ header.header-hidden {
 }
 
 body.menu-open header {
-    transform: none !important;
+    transform: none;
 }
 
 .header-container {
@@ -201,6 +201,21 @@ body.menu-open header {
     margin: var(--spacing-xl) auto 0;
     height: 40px;
     width: auto;
+}
+
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+
 }
 
 .copyright-section {
@@ -283,34 +298,30 @@ section {
     line-height: 0;
 }
 
-/* Logo */
-.logo-header:focus-visible {
-    position: relative;
-    z-index: 1102;
-}
-
 .logo-header img {
     height: 50px;
     width: auto;
     margin: 12px;
 }
 
-
-footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: calc(var(--spacing-lg) + var(--spacing-xs));
-    margin-bottom: calc(var(--spacing-xl) + var(--spacing-sm));
-    text-align: center;
-
-
+/* Logo */
+.logo-header:focus-visible {
+    position: relative;
+    z-index: 1102;
 }
 
+/* Hero + weitere Bewegungen */
+@media (prefers-reduced-motion: reduce) {
+    .hero-obj-adam,
+    .hero-obj-gott,
+    .hero-obj-drop,
+    .man-apple-container .man-arm,
+    .distellerie_container .distellerie-wheel {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
 
 
 
@@ -477,20 +488,6 @@ img {
     opacity: 0;
 }
 
-/* Hero-Animationen rein per CSS */
-
-
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-obj-adam,
-    .hero-obj-gott,
-    .hero-obj-drop {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-}
 
 
 .hero_image_container .hero-obj-adam {
@@ -612,9 +609,17 @@ img {
 }
 
 @keyframes arm-swing {
-    0%   { transform: rotate(0deg); }
-    50%  { transform: rotate(-18deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-18deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 
@@ -626,7 +631,8 @@ img {
 .distellerie_container {
     position: relative;
     width: 100%;
-    display: block; /* verhält sich wie img */
+    display: block;
+    /* verhält sich wie img */
 }
 
 .distellerie_container .distellerie-bg {
@@ -649,8 +655,13 @@ img {
 }
 
 @keyframes wheel-rotate {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* ====================== */
@@ -871,6 +882,7 @@ swiper-container.producer-swiper::part(page-bullet-active) {
 /*=======================*
 *  Responsive
 *=======================*/
+
 
 @media screen and (max-width: 1024px) {
 
