@@ -438,11 +438,11 @@ img {
 }
 
 .hero-bg       { z-index: 0; }
-.hero-obj-adam { z-index: 3; }
-.hero-obj-gott { z-index: 3; }
-.hero-obj-drop { z-index: 2; }
-.hero_overlay  { z-index: 1; }
-.name_hero     { z-index: 1; }
+.hero-obj-adam { z-index: 2; }
+.hero-obj-gott { z-index: 2; }
+.hero-obj-drop { z-index: 1; }
+.hero_overlay  { z-index: 3; }
+.name_hero     { z-index: 4; }
 
 /* Startzustände – vor Animation */
 .hero-obj-adam {
@@ -490,7 +490,7 @@ img {
 @keyframes hero-adam-in {
     0% {
         transform: translateX(-100%);
-        opacity: 0;
+        opacity: 1;
     }
     100% {
         transform: translateX(0);
@@ -501,7 +501,7 @@ img {
 @keyframes hero-gott-in {
     0% {
         transform: translateX(100%);
-        opacity: 0;
+        opacity: 1;
     }
     100% {
         transform: translateX(0);
@@ -525,6 +525,8 @@ img {
         opacity: 0;
     }
 }
+
+
 
 
 .name_hero {
@@ -894,13 +896,30 @@ swiper-container.producer-swiper::part(page-bullet-active) {
         order: 3;
         width: 100%;
         border-top: 1px solid var(--secondary-color);
-        padding-top: var(--spacing-xl);
+        padding-top: var(--spacing-lg);
     }
 
 
     .two-col.reverse> :first-child {
         order: 0;
     }
+
+@keyframes hero-drop-move-fade {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(13%);
+        opacity: 0;
+    }
+}
 
 }
 
@@ -962,6 +981,10 @@ swiper-container.producer-swiper::part(page-bullet-active) {
     gap: var(--spacing-sm);
      padding: 0;
 }
+
+    #Craft_Tradition>#tradition {
+        padding-top: var(--spacing-md);
+    }
 
 
 .Explore_image{
